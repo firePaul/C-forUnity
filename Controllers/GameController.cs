@@ -1,16 +1,25 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
+using DefaultNamespace.Bonuses;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public sealed class GameController : MonoBehaviour
 {
     private InteractiveObject[] _interactiveObjects;
     private RandomColor _rndcolor;
     private Reference _reference;
-    
-    
+    [SerializeField] private BonusData _data;
+
+
+    private void Start()
+    {
+        new GameInt(_data);
+    }
+
     private void Awake()
     {
         _interactiveObjects = FindObjectsOfType<InteractiveObject>();
